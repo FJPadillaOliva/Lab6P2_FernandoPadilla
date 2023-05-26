@@ -573,7 +573,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="jb_agregarZ" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jb_agregarPG" alignment="0" max="32767" attributes="0"/>
                       <Component id="jb_agregarG" alignment="0" max="32767" attributes="0"/>
                       <Component id="jb_agregarR" max="32767" attributes="0"/>
                       <Component id="jb_agregarOH" max="32767" attributes="0"/>
@@ -595,7 +595,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jb_agregarG" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jb_agregarPG" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jb_agregarZ" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -643,7 +643,7 @@
             <Component class="javax.swing.JTree" name="jTree_Personal">
               <Properties>
                 <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
-                  <TreeModel code="Personal&#xa; Gerente&#xa;  Gerente de Planta&#xa;  Gerente de Sucursal&#xa; Personal"/>
+                  <TreeModel code="Personal&#xa; Gerente&#xa; Personal"/>
                 </Property>
               </Properties>
             </Component>
@@ -706,10 +706,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jb_agregarPG">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Personal"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_agregarPGMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jb_agregarR">
           <Properties>

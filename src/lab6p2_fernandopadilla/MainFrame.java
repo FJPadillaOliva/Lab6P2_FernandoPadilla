@@ -5,7 +5,10 @@
 package lab6p2_fernandopadilla;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -13,8 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    static ArrayList<Personas> gerentes = new ArrayList();
-    static ArrayList<Personas> personal = new ArrayList();
+    ArrayList<Personas> gerentes = new ArrayList();
+    ArrayList<Personas> personal = new ArrayList();
     /**
      * Creates new form MainFrame
      */
@@ -94,7 +97,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTree_Objetos = new javax.swing.JTree();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jb_agregarPG = new javax.swing.JButton();
         jb_agregarR = new javax.swing.JButton();
         jb_agregarOH = new javax.swing.JButton();
 
@@ -418,10 +421,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personal");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gerente");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Gerente de Planta");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Gerente de Sucursal");
-        treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Personal");
         treeNode1.add(treeNode2);
@@ -461,7 +460,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Agregar Personal");
+        jb_agregarPG.setText("Agregar Personal");
+        jb_agregarPG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarPGMouseClicked(evt);
+            }
+        });
 
         jb_agregarR.setText("Agregar Ropa");
 
@@ -476,7 +480,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jb_agregarZ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_agregarPG, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_agregarG, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_agregarR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_agregarOH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -495,7 +499,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jb_agregarG)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(jb_agregarPG)
                         .addGap(18, 18, 18)
                         .addComponent(jb_agregarZ)
                         .addGap(18, 18, 18)
@@ -547,8 +551,29 @@ public class MainFrame extends javax.swing.JFrame {
                 , sexo , tf_estadoC.getText()
                 , Double.parseDouble(tf_altura.getText())
                 , Double.parseDouble(tf_peso.getText()) ));
+        DefaultTreeModel modeloARBOL
+                    = (DefaultTreeModel) jTree_Personal.getModel();
+            DefaultMutableTreeNode raiz
+                    = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i).toString().
+                    equals("Gerente")) {
+                DefaultMutableTreeNode p
+                        = new DefaultMutableTreeNode(
+                                new Gerente(tf_usuario.getText(),
+                                        tf_contraseña.getText(),
+                                        cargo, tf_id.getText(),
+                                        tf_nombre.getText(),
+                                        Integer.parseInt(tf_edad.getText()),
+                                        sexo, tf_estadoC.getText(),
+                                        Double.parseDouble(tf_altura.getText()),
+                                        Double.parseDouble(tf_peso.getText())));
+                ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+            }
+        }
         JOptionPane.showMessageDialog(jd_agregarG,"Agregado con exito" );
         jd_agregarG.setVisible(false);
+        modeloARBOL.reload();
     }//GEN-LAST:event_jb_agregarMouseClicked
 
     private void jb_agregarGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarGMouseClicked
@@ -579,6 +604,13 @@ public class MainFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(jd_agregarPG, "Agregado con exito");
         jd_agregarPG.setVisible(false);
     }//GEN-LAST:event_jb_agregar2MouseClicked
+
+    private void jb_agregarPGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarPGMouseClicked
+        jd_agregarPG.pack();
+        jd_agregarPG.setLocationRelativeTo(this);
+        jd_agregarPG.setModal(true);
+        jd_agregarPG.setVisible(true);
+    }//GEN-LAST:event_jb_agregarPGMouseClicked
 
     /**
      * @param args the command line arguments
@@ -618,7 +650,6 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -654,6 +685,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jb_agregar2;
     private javax.swing.JButton jb_agregarG;
     private javax.swing.JButton jb_agregarOH;
+    private javax.swing.JButton jb_agregarPG;
     private javax.swing.JButton jb_agregarR;
     private javax.swing.JButton jb_agregarZ;
     private javax.swing.JDialog jd_agregarG;
