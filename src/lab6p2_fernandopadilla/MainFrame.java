@@ -65,9 +65,9 @@ public class MainFrame extends javax.swing.JFrame {
         jb_agregarG = new javax.swing.JButton();
         jb_crearO = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTree3 = new javax.swing.JTree();
+        jTree_Personal = new javax.swing.JTree();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTree4 = new javax.swing.JTree();
+        jTree_Objetos = new javax.swing.JTree();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -286,9 +286,27 @@ public class MainFrame extends javax.swing.JFrame {
 
         jb_crearO.setText("Crear Objeto");
 
-        jScrollPane3.setViewportView(jTree3);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personal");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gerente");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Gerente de Planta");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Gerente de Sucursal");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Personal");
+        treeNode1.add(treeNode2);
+        jTree_Personal.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jTree_Personal);
 
-        jScrollPane4.setViewportView(jTree4);
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Objeto");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Zapatos");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Ropa");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Objetos de Hogar");
+        treeNode1.add(treeNode2);
+        jTree_Objetos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane4.setViewportView(jTree_Objetos);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -428,8 +446,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTree jTree3;
-    private javax.swing.JTree jTree4;
+    private javax.swing.JTree jTree_Objetos;
+    private javax.swing.JTree jTree_Personal;
     private javax.swing.JButton jb_agregarG;
     private javax.swing.JButton jb_crearO;
     private javax.swing.JDialog jd_agregarG;
