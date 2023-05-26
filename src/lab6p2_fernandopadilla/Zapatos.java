@@ -14,7 +14,7 @@ public class Zapatos extends Objetos {
         super(color, descripcion, marca, tamaño, calidad, usuario);
         this.talla = talla;
         this.descripcionZ = descripcionZ;
-        this.comodidad = comodidad;
+        setComodidad(comodidad);
     }
 
     public char getTalla() {
@@ -38,7 +38,9 @@ public class Zapatos extends Objetos {
     }
 
     public void setComodidad(int comodidad) {
-        this.comodidad = comodidad;
+        if (comodidad>= 1 || comodidad <=10) {
+            this.comodidad = comodidad;
+        }
     }
 
     @Override
