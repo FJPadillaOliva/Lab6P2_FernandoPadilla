@@ -1,13 +1,49 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lab6p2_fernandopadilla;
 
-/**
- *
- * @author Wendy
- */
-public class ObjetosHogar {
+
+public class ObjetosHogar extends Objetos {
+    private String descripcionO, instrucciones;
+    private int tiempoG;
+
+    public ObjetosHogar() {
+    }
+
+    public ObjetosHogar(String descripcionO, String instrucciones, int tiempoG, String color, String descripcion, String marca, String tamaño, String calidad, Personas usuario) {
+        super(color, descripcion, marca, tamaño, calidad, usuario);
+        this.descripcionO = descripcionO;
+        this.instrucciones = instrucciones;
+        this.tiempoG = tiempoG;
+    }
+
+    public String getDescripcionO() {
+        return descripcionO;
+    }
+
+    public void setDescripcionO(String descripcionO) {
+        this.descripcionO = descripcionO;
+    }
+
+    public String getInstrucciones() {
+        return instrucciones;
+    }
+
+    public void setInstrucciones(String instrucciones) {
+        this.instrucciones = instrucciones;
+    }
+
+    public int getTiempoG() {
+        return tiempoG;
+    }
+
+    public void setTiempoG(int tiempoG) {
+        this.tiempoG = tiempoG;
+    }
+
+    @Override
+    public String toString() {
+        return "ObjetosHogar{" + "descripcionO=" + descripcionO + ", instrucciones=" + instrucciones + ", tiempoG=" + tiempoG + '}';
+    }
+    
     
 }
