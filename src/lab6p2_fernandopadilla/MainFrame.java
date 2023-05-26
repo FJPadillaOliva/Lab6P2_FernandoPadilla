@@ -535,27 +535,27 @@ public class MainFrame extends javax.swing.JFrame {
         String cargo = "";
         if (rb_femenino.isSelected()) {
             sexo = 'F';
-        }else{
+        } else {
             sexo = 'M';
         }
         if (rb_planta.isSelected()) {
             cargo = "Gerente de planta";
-        }else{
+        } else {
             cargo = "Gerente de Sucursal";
         }
-        gerentes.add(new Gerente(tf_usuario.getText()
-                , tf_contraseña.getText()
-                , cargo, tf_id.getText()
-                , tf_nombre.getText()
-                , Integer.parseInt(tf_edad.getText())
-                , sexo , tf_estadoC.getText()
-                , Double.parseDouble(tf_altura.getText())
-                , Double.parseDouble(tf_peso.getText()) ));
+        gerentes.add(new Gerente(tf_usuario.getText(),
+                 tf_contraseña.getText(),
+                 cargo, tf_id.getText(),
+                 tf_nombre.getText(),
+                 Integer.parseInt(tf_edad.getText()),
+                 sexo, tf_estadoC.getText(),
+                 Double.parseDouble(tf_altura.getText()),
+                 Double.parseDouble(tf_peso.getText())));
         DefaultTreeModel modeloARBOL
-                    = (DefaultTreeModel) jTree_Personal.getModel();
-            DefaultMutableTreeNode raiz
-                    = (DefaultMutableTreeNode) modeloARBOL.getRoot();
-            for (int i = 0; i < raiz.getChildCount(); i++) {
+                = (DefaultTreeModel) jTree_Personal.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+        for (int i = 0; i < raiz.getChildCount(); i++) {
             if (raiz.getChildAt(i).toString().
                     equals("Gerente")) {
                 DefaultMutableTreeNode p
@@ -571,7 +571,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
             }
         }
-        JOptionPane.showMessageDialog(jd_agregarG,"Agregado con exito" );
+        JOptionPane.showMessageDialog(jd_agregarG, "Agregado con exito");
         jd_agregarG.setVisible(false);
         modeloARBOL.reload();
     }//GEN-LAST:event_jb_agregarMouseClicked
@@ -587,7 +587,7 @@ public class MainFrame extends javax.swing.JFrame {
         char sexo;
         if (rb_femenino1.isSelected()) {
             sexo = 'F';
-        }else{
+        } else {
             sexo = 'M';
         }
         personal.add(new PersonaG(tf_ocupacion.getText(),
@@ -601,8 +601,32 @@ public class MainFrame extends javax.swing.JFrame {
                 tf_estadoC1.getText(),
                 Double.parseDouble(tf_altura1.getText()),
                 Double.parseDouble(tf_peso1.getText())));
+        DefaultTreeModel modeloARBOL
+                = (DefaultTreeModel) jTree_Personal.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i).toString().
+                    equals("Personal")) {
+                DefaultMutableTreeNode p
+                        = new DefaultMutableTreeNode(
+                                new PersonaG(tf_ocupacion.getText(),
+                                        tf_horario.getText(),
+                                        Integer.parseInt(tf_tiempo.getText()),
+                                        Integer.parseInt(tf_sueldo.getText()),
+                                        tf_id1.getText(),
+                                        tf_nombre1.getText(),
+                                        Integer.parseInt(tf_edad1.getText()),
+                                        sexo,
+                                        tf_estadoC1.getText(),
+                                        Double.parseDouble(tf_altura1.getText()),
+                                        Double.parseDouble(tf_peso1.getText())));
+                ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+            }
+        }
         JOptionPane.showMessageDialog(jd_agregarPG, "Agregado con exito");
         jd_agregarPG.setVisible(false);
+        modeloARBOL.reload();
     }//GEN-LAST:event_jb_agregar2MouseClicked
 
     private void jb_agregarPGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarPGMouseClicked

@@ -8,6 +8,7 @@ public class PersonaG extends Personas {
     private double sueldo;
 
     public PersonaG() {
+        super();
     }
 
     public PersonaG(String ocupacion, String horario, int tiempo, double sueldo, String id, String nombre, int edad, char sexo, String estadoC, double altura, double peso) {
@@ -52,7 +53,7 @@ public class PersonaG extends Personas {
 
     @Override
     public String toString() {
-        return "PersonaG{" + "ocupacion=" + ocupacion + ", horario=" + horario + ", tiempo=" + tiempo + ", sueldo=" + sueldo + '}';
+        return getNombre() + ",Ocupacion=" + ocupacion + ", horario=" + horario + ", tiempo=" + tiempo + ", sueldo=" + sueldo;
     }
     
     
